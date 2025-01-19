@@ -5,7 +5,8 @@
     void pipleine(const char* process1,const char* process2){
         int fd[2];
         pipe(fd);
-        if(fork()!= 0){ //parent process
+        int id = fork();
+        if(id != 0){ //parent process 
         close(fd[0]);
         dup2(fd[1], STDOUT_FILENO);
         close(fd[1]);
